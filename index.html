@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Demand Vintage</title>
+  <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+
+  <!-- Screen: Connect -->
+  <div id="screenConnect" class="screen active">
+    <div class="screen-inner">
+      <div class="brand">
+        <div class="brand-mark">DV</div>
+        <h1>Demand Vintage</h1>
+        <p>Mobile capture tool</p>
+      </div>
+      <div class="connect-card">
+        <h2>Connect Google Drive</h2>
+        <p>Products you save here will appear as drafts in your desktop dashboard.</p>
+        <button id="connectBtn" class="btn-primary">Connect Google Drive</button>
+        <p id="connectStatus" class="status-text"></p>
+      </div>
+      <div class="config-section">
+        <label for="clientIdInput">Google Client ID</label>
+        <input type="text" id="clientIdInput" placeholder="Paste your OAuth Client ID" autocomplete="off" />
+        <p class="field-hint">Find this in your extension Settings under Cloud Storage.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen: Main -->
+  <div id="screenMain" class="screen">
+    <header class="app-header">
+      <div class="header-brand">DV</div>
+      <div class="header-center">
+        <span id="headerAccount" class="header-account"></span>
+      </div>
+      <button id="disconnectBtn" class="btn-ghost">Disconnect</button>
+    </header>
+
+    <div class="screen-inner">
+
+      <!-- Product ID -->
+      <section class="card">
+        <label for="productIdInput">Product ID</label>
+        <div class="product-id-row">
+          <input type="text" id="productIdInput" placeholder="e.g. DV082" autocomplete="off" />
+          <button id="generateIdBtn" class="btn-secondary">Auto</button>
+        </div>
+      </section>
+
+      <!-- Photos -->
+      <section class="card">
+        <div class="section-header">
+          <label>Photos</label>
+          <span id="photoCount" class="photo-count">0 / 8</span>
+        </div>
+
+        <div id="photoGrid" class="photo-grid"></div>
+
+        <div class="photo-actions">
+          <label for="cameraInput" class="btn-primary btn-block">
+            <span>📷</span> Take Photo
+          </label>
+          <input type="file" id="cameraInput" accept="image/*" capture="environment" multiple style="display:none" />
+          <label for="libraryInput" class="btn-secondary btn-block">
+            <span>🖼</span> Choose from Library
+          </label>
+          <input type="file" id="libraryInput" accept="image/*" multiple style="display:none" />
+        </div>
+      </section>
+
+      <!-- Save -->
+      <section class="save-section">
+        <button id="saveBtn" class="btn-save" disabled>
+          Save to Drafts
+        </button>
+        <p id="saveStatus" class="status-text"></p>
+      </section>
+
+      <!-- Recent -->
+      <section class="card" id="recentSection" style="display:none">
+        <div class="section-header">
+          <label>Recently Saved</label>
+          <button id="clearRecentBtn" class="btn-ghost-small">Clear</button>
+        </div>
+        <div id="recentList" class="recent-list"></div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="mobile.js"></script>
+</body>
+</html>
